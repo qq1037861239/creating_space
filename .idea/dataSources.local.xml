@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="pooledDataSource" uuid="4baec156-87c0-4860-84c8-382ba3027a23">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <user-name>learning</user-name>
+    </data-source>
+    <data-source name="db-config" uuid="6e3aacbe-1ef2-484e-9b04-f624936e0263">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="DB2" exact-version="0" />
+    </data-source>
+  </component>
+</project>
