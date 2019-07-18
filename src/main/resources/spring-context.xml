@@ -22,6 +22,7 @@
     <!--引入外部的db配置文件-->
     <context:property-placeholder file-encoding="UTF-8" location="classpath:db-config.properties" />
 
+    <!--c3p0数据库连接池-->
     <bean id="pooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="jdbcUrl" value="${jdbc.jdbcUrl}" />
         <property name="driverClass" value="${jdbc.driverClass}" />
@@ -29,7 +30,7 @@
         <property name="password" value="${jdbc.password}" />
     </bean>
 
-    <!--配置整合mybatis-->
+    <!--配置整合mybatis全局配置文件-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!--指定mybatis的全局配置文件-->
         <property name="configLocation" value="classpath:mybatis-config.xml" />

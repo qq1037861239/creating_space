@@ -75,8 +75,23 @@ create table if not exists password_in_cb_history (
 -- 用户信息扩展表
 create table if not exists consumer_extend (
     ce_id bigint not null primary key auto_increment comment '用户ID，自增主键',
+    ce_name char(20) comment '姓名',
     ce_gender char(1) not null default 0 comment '性别，0为未知，1为男，2为女',
     ce_age int(3) not null default 0 comment '年龄，默认0岁',
     ce_birthday date default null comment '生日',
-    ce_
-)
+    ce_isdel char(1) not null default 1 comment '是否删除，1为存在，0为删除，其他状态预留'
+) engine = InnoDB auto_increment = 1 default charset = utf8mb4;
+
+
+-- 用户角色表
+/* cr_role_code：用户角色码，
+   一级码为一个小写字母（大写字母预留），
+   二级码为两个字符，包括数字和大小写字母（目前只用小写字母，大写字母预留），
+   三级码为一个数字或大小写字母（目前只用小写字母，大写字母预留）
+ */
+create table if not exists consumer_role (
+    cr_id bigint not null primary key auto_increment comment '用户角色ID，自增主键',
+    cr_role_code char(4) not null default 'aa11' comment '用户角色码，默认aa11',
+    cr_role varchar(20) not null default 'tripper' comment '用户角色，默认游客',
+    cr_isdel char(1) not null default 1 comment '是否删除，1为存在，0为删除，其他状态预留'
+) engine = InnoDB auto_increment = 1 default charset = utf8mb4;

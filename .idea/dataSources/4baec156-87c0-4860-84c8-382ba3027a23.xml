@@ -1100,7 +1100,8 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="275" parent="2" name="consumer_base"/>
-    <column id="276" parent="275" name="cb_id">
+    <table id="276" parent="2" name="consumer_extend"/>
+    <column id="277" parent="275" name="cb_id">
       <Position>1</Position>
       <Comment>用户ID，自增主键</Comment>
       <DataType>bigint(20)|0s</DataType>
@@ -1108,51 +1109,51 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="277" parent="275" name="cb_username">
+    <column id="278" parent="275" name="cb_username">
       <Position>2</Position>
       <Comment>用户名</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="278" parent="275" name="cb_password">
+    <column id="279" parent="275" name="cb_password">
       <Position>3</Position>
       <Comment>密码，可以是汉字</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="275" name="cb_phone">
+    <column id="280" parent="275" name="cb_phone">
       <Position>4</Position>
       <Comment>手机号，暂时只考虑大陆区号</Comment>
       <DataType>char(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="275" name="cb_email">
+    <column id="281" parent="275" name="cb_email">
       <Position>5</Position>
       <Comment>电子邮箱</Comment>
       <DataType>varchar(200)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="275" name="cb_nickname">
+    <column id="282" parent="275" name="cb_nickname">
       <Position>6</Position>
       <Comment>昵称，可以随意更改</Comment>
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="275" name="cb_date">
+    <column id="283" parent="275" name="cb_date">
       <Position>7</Position>
       <Comment>注册日期</Comment>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="275" name="cb_time">
+    <column id="284" parent="275" name="cb_time">
       <Position>8</Position>
       <Comment>注册时间</Comment>
       <DataType>time|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="275" name="cb_have_phone">
+    <column id="285" parent="275" name="cb_have_phone">
       <Position>9</Position>
       <Comment>是否绑定手机，1为是，0为否</Comment>
       <DataType>char(1)|0s</DataType>
@@ -1160,7 +1161,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="275" name="cb_have_email">
+    <column id="286" parent="275" name="cb_have_email">
       <Position>10</Position>
       <Comment>是否绑定邮箱，1为是，0为否</Comment>
       <DataType>char(1)|0s</DataType>
@@ -1168,7 +1169,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="275" name="cb_isdel">
+    <column id="287" parent="275" name="cb_isdel">
       <Position>11</Position>
       <Comment>是否删除，1为存在，0为删除，其他状态预留</Comment>
       <DataType>char(1)|0s</DataType>
@@ -1176,9 +1177,58 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="287" parent="275" name="PRIMARY">
+    <key id="288" parent="275" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>cb_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="289" parent="276" name="ce_id">
+      <Position>1</Position>
+      <Comment>用户ID，自增主键</Comment>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="290" parent="276" name="ce_name">
+      <Position>2</Position>
+      <Comment>姓名</Comment>
+      <DataType>char(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="291" parent="276" name="ce_gender">
+      <Position>3</Position>
+      <Comment>性别，0为未知，1为男，2为女</Comment>
+      <DataType>char(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="292" parent="276" name="ce_age">
+      <Position>4</Position>
+      <Comment>年龄，默认0岁</Comment>
+      <DataType>int(3)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="293" parent="276" name="ce_birthday">
+      <Position>5</Position>
+      <Comment>生日</Comment>
+      <DataType>date|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="294" parent="276" name="ce_isdel">
+      <Position>6</Position>
+      <Comment>是否删除，1为存在，0为删除，其他状态预留</Comment>
+      <DataType>char(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="295" parent="276" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ce_id</ColNames>
       <Primary>1</Primary>
     </key>
   </database-model>
